@@ -1,3 +1,4 @@
+using AutoMapper;
 using CodersAcademy.API.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +42,8 @@ namespace CodersAcademy.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CodersAcademy.API", Version = "v1" });
             });
+
+            services.AddAutoMapper(typeof(Startup).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
