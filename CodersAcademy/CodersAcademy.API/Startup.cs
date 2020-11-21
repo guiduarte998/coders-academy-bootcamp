@@ -32,6 +32,7 @@ namespace CodersAcademy.API
 
 
             services.AddScoped<AlbumRepository>();
+            services.AddScoped<UserRepository>();
             services.AddControllers();
             services.AddDbContext<MusicContext>(c =>
             {

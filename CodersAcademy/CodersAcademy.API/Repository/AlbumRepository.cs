@@ -24,7 +24,7 @@ namespace CodersAcademy.API.Repository
         //Aqui não temos paramostros no task pois estamos deletando um objeto
         public async Task DeleteAsync(Album model)
         {
-             this.Context.Remove(model);
+            this.Context.Remove(model);
             //Sempre ao fazer um delete temos que salvar a operação
             await this.Context.SaveChangesAsync();
         }
@@ -34,5 +34,9 @@ namespace CodersAcademy.API.Repository
             await this.Context.Albuns.AddAsync(album);
             await this.Context.SaveChangesAsync();
         }
+
+        public async Task<Music> GetMusicAsync(Guid musicId)
+            => await this.Context.Music.Where(x => x.Id == musicId).FirstOrDefaultAsync();
+
     }
 }
